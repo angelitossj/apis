@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import "./Estilos.css"
+
 const Pokes = () => {
   const [pokemones, setPokemones] = useState({});
 
@@ -26,12 +27,17 @@ const Pokes = () => {
     await Promise.all(solicitudes);
   };
 
+  const eliminarPokemon = (id) => {
+    const { [id]: omitido, ...resto } = pokemones;
+    setPokemones(resto);
+  };
+
   return (
     <>
       <div className="">
         <Button
           onClick={() => {
-            obtenerListaPokemon(25);
+            obtenerListaPokemon(100);
           }}
         >
           Pokemoncitos
@@ -52,7 +58,14 @@ const Pokes = () => {
                   <Card.Img variant="top" src={imagen} />
                   <Card.Body style={{ textAlign: "center" }}>
                     <Card.Title>{nombre}</Card.Title>
-                    <Button variant="primary">Ver detalles</Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => {
+                        eliminarPokemon(id);
+                      }}
+                    >
+                      Eliminar
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
