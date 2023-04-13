@@ -7,6 +7,7 @@ const DragonBall = () => {
  
 
   const obtenerCartas = async () => {
+
     const response = await fetch("https://dragon-ballz-super-api.site/api");
     const data = await response.json();
     console.log(data)
@@ -27,6 +28,7 @@ const DragonBall = () => {
     setCartas(cartasRestantes);
   };
  
+
   return (
     <>
     <Button onClick={()=>{obtenerCartas()}}> Dragon ball </Button>

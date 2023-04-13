@@ -1,8 +1,20 @@
-import React from "react";
-import img from "../../public/goku.png";
+import React,{useState} from "react";
+import dragonball from "../../public/goku.png";
+import yugi from "../../public/yugi.jpg"
+import poke from "../../public/picachu.jpeg"
+import juancho from "../../public/juancho.jpeg"
 import { Link } from "react-router-dom";
 
 const NavBar2 = () => {
+  const [imagenes, setImagenes] = useState(juancho)
+
+const cambiarImagen= (imagen)=>{
+
+  setImagenes(imagen)
+
+}
+
+
   return (
     <div>
       <div>
@@ -14,35 +26,38 @@ const NavBar2 = () => {
                   to="/home"
                   className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
                 >
-                  <img
-                    src={img}
-                    alt=""
+                {
+                    imagenes !== "" && 
+                    <img
+                    src={imagenes}
+                    alt="..."
                     className="logoNav"
-                    width="230"
-                    height="130"
+                    width="270"
+                    height="230"
                     role="img"
                     aria-label="imagen"
                   />
+                }
                 </Link>
 
                 <ul className="ulnav nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 rancio">
                   <li >
-                    <Link to="/" className="nav-link">
+                    <Link to="/" onClick={()=>{cambiarImagen(juancho)}} className="nav-link">
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link to="/Yugioh" className=" nav-link">
+                    <Link to="/Yugioh" onClick={()=>{cambiarImagen(yugi)}} className=" nav-link">
                       Yugioh
                     </Link>
                   </li>
                   <li>
-                    <Link to="/pokemoncitos" className=" nav-link ">
+                    <Link to="/pokemoncitos" onClick={()=>{cambiarImagen(poke)}} className=" nav-link ">
                      Pokemones
                     </Link>
                   </li>
                   <li>
-                    <Link to="/dragonball" className=" nav-link ">
+                    <Link to="/dragonball" onClick={()=>{cambiarImagen(dragonball)}} className=" nav-link ">
                       Dragonball
                     </Link>
                   </li>
