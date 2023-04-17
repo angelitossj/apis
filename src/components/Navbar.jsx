@@ -61,6 +61,16 @@ const cambiarImagen= (imagen)=>{
                       Dragonball
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/juegos" onClick={()=>{cambiarImagen(dragonball)}} className=" nav-link ">
+                      Jueguitos
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/disney" onClick={()=>{cambiarImagen(dragonball)}} className=" nav-link ">
+                      Disney
+                    </Link>
+                  </li>
                 </ul>
 
             
