@@ -37,7 +37,7 @@ const Pokes = () => {
       <div className="">
         <Button
           onClick={() => {
-            obtenerListaPokemon(30);
+            obtenerListaPokemon(200);
           }}
         >
           Pokemoncitos
